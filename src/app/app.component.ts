@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit {
-  isCalculate = false
+  isCalculate: boolean = false
 
   title = 'ANN by Arigo';
 
@@ -38,24 +38,12 @@ export class AppComponent implements OnInit {
     
   }
 
-  getValueZ(x1: any, x2: any){
-    var result: any
-
-    result = x1 && x2
-
-    if (result == true) {
-      return 1
-    } {
-      return 0
+  disabledButton(){
+    if (this.operation == 'null' || this.w1_input == 0 ||  this.w1_input == null || this.w2_input == 0 || this.w2_input == null || this.isCalculate == true){
+      return true
+    } else {
+      return false
     }
-  }
-
-  getValueSUM(x1: any, x2: any, w1: any, w2: any){
-    return x1*w1 + x2*w2
-  }
-
-  getNewW1(w: any, zy: any, x: any){
-    return w + this.lr_a * zy * x
   }
 
   calculate(){
